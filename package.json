@@ -1,5 +1,5 @@
 {
-  "name": "network-simulator-tools",
+  "name": "streamr-network-simulator-tools",
   "version": "1.0.0",
   "description": "Tools for simulating and analyzing Streamr network from a theoretical / algorithmic perspective.",
   "main": "src/index.ts",
