@@ -17,7 +17,7 @@ export class Graph {
 
     constructor(numOfNodes: number) {
         if (numOfNodes <= 0) {
-            throw new GraphError(`numOfNodes not positive (${numOfNodes}).`)
+            throw new GraphError(`numOfNodes not positive (${numOfNodes}).`);
         }
         this.adjacencyMatrix = new Array(numOfNodes);
         for (let i = 0; i < numOfNodes; ++i) {
@@ -26,14 +26,14 @@ export class Graph {
     }
 
     asAdjacencyMatrix(): readonly number[][] {
-        return this.adjacencyMatrix
+        return this.adjacencyMatrix;
     }
 
     setEdge(nodeId: number, neighborId: number, weight: number) {
         this.validateNodeId(nodeId);
         this.validateNodeId(neighborId);
         if (weight < 0) {
-            throw new GraphError(`Edge weight cannot be negative (${weight}).`)
+            throw new GraphError(`Edge weight cannot be negative (${weight}).`);
         }
         if (nodeId === neighborId) {
             throw new GraphError("Node cannot have an edge to itself.");
