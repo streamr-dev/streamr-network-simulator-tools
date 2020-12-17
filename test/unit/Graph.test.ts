@@ -1,4 +1,4 @@
-import {Graph, GraphError} from "../src/Graph";
+import {Graph, GraphError} from "../../src/Graph";
 
 describe('Graph', () => {
     let graph: Graph;

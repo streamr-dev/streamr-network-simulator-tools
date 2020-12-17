@@ -1,4 +1,4 @@
-import { TimeSimulator, Event } from "../src/TimeSimulator";
+import { TimeSimulator, Event } from "../../src/TimeSimulator";
 
 describe('Event', () => {
     it('cannot create event with negative time', () => {

@@ -1,3 +1,5 @@
+import { create2dTable } from "./utils";
+
 export class GraphError extends Error {
     constructor(msg: string) {
         super(msg);
@@ -19,10 +21,7 @@ export class Graph {
         if (numOfNodes <= 0) {
             throw new GraphError(`numOfNodes not positive (${numOfNodes}).`);
         }
-        this.adjacencyMatrix = new Array(numOfNodes);
-        for (let i = 0; i < numOfNodes; ++i) {
-            this.adjacencyMatrix[i] = new Array(numOfNodes).fill(0);
-        }
+        this.adjacencyMatrix = create2dTable(numOfNodes);
     }
 
     asAdjacencyMatrix(): readonly number[][] {
@@ -54,6 +53,11 @@ export class Graph {
             }
         });
         return edges;
+    }
+
+    neighborsOf(nodeId: number): number[] {
+        this.validateNodeId(nodeId);
+        return [...this.edgesOf(nodeId)].map((edge) => edge.neighborId);
     }
 
     isEdgeBetween(nodeId: number, neighborId: number): boolean {
