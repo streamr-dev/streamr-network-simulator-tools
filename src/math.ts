@@ -1,5 +1,5 @@
 export function sum(array: number[]): number {
-    return array.reduce((acc, k) => acc + k, 0)
+    return array.reduce((acc, k) => acc + k, 0);
 }
 
 export function mean(array: number[], n = array.length): number {
@@ -7,11 +7,11 @@ export function mean(array: number[], n = array.length): number {
 }
 
 export function sd(array: number[]): number {
-    const n = array.length
-    const mean = array.reduce((a, b) => a + b) / n
-    return Math.sqrt(array.map((x) => Math.pow(x - mean, 2)).reduce((a, b) => a + b) / n)
+    const n = array.length;
+    const mu = mean(array);
+    return Math.sqrt(sum(array.map((x) => Math.pow(x - mu, 2))) / n);
 }
 
 export function removeZeros(array: number[]): number[] {
-    return array.filter((k) => k !== 0)
+    return array.filter((k) => k !== 0);
 }
