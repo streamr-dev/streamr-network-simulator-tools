@@ -28,7 +28,7 @@ export class Graph {
         return this.adjacencyMatrix;
     }
 
-    setEdge(nodeId: number, neighborId: number, weight: number) {
+    setEdge(nodeId: number, neighborId: number, weight: number): void {
         this.validateNodeId(nodeId);
         this.validateNodeId(neighborId);
         if (weight < 0) {

@@ -29,7 +29,6 @@ describe(shuffle, () => {
         // verify that relative standard deviation is small enough
         const stddev = sd(recordings.flat());
         const rds = stddev / expectedMean;
-        console.info('relative standard deviation', rds);
         expect(rds).toBeLessThan(0.05);
     })
 })

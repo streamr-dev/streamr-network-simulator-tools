@@ -26,13 +26,15 @@ const propagate = (sourceId: number | null, nodeId: number) => () => {
 
 const firstNode = 0;
 const firstEvent = new Event(0, propagate(null, firstNode));
-numOfMessagesReceivedPerNode[firstNode] = -1;
+numOfMessagesReceivedPerNode[firstNode] = -1; // account for 1st event on 1st node
 
 const timeSimulator = new TimeSimulator();
 timeSimulator.execute(firstEvent);
 
-console.table(graph.asAdjacencyMatrix());
+//console.table(graph.asAdjacencyMatrix());
+console.info('Messages sent:');
 console.table(numOfMessagesSentPerNode);
+console.info('Messages received:');
 console.table(numOfMessagesReceivedPerNode);
 console.info('Node degrees:', graph.nodeDegrees())
 

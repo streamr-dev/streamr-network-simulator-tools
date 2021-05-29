@@ -31,7 +31,7 @@ export class TimeSimulator {
             nextEvents.forEach((nextEvent) => {
                 nextEvent.time += this.time;
                 this.minHeap.push(nextEvent);
-            })
+            });
         }
     }
 
