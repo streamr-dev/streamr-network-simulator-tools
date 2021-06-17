@@ -1,5 +1,11 @@
 import { Graph } from "./Graph";
 
+export function* forRounds(rounds: number): Generator<number, void> {
+    for (let i=0; i < rounds; ++i) {
+        yield i;
+    }
+}
+
 export function create2dTable<T>(n: number): T[][] {
     const rows = new Array(n);
     for (let i = 0; i < rows.length; ++i) {

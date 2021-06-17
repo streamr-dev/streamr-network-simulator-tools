@@ -1,5 +1,5 @@
 # streamr-network-simulator-tools
-An assortment of tools for simulating and analyzing Streamr Network from a theoretical / algorithmic perspective.
+An assortment of tools for analyzing Streamr Network from a graph theoretical / algorithmic perspective.
 
 ## Install
 

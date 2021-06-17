@@ -1,11 +1,7 @@
-import { create2dTable, generateRandomRegularGraph, shuffle } from "../../src/utils";
+import { create2dTable, forRounds, generateRandomRegularGraph, shuffle } from "../../src/utils";
 import { mean, removeZeros, sd, sum } from "../../src/math"
 
-function* forRounds(rounds: number): Generator<number, void> {
-    for (let i=0; i < rounds; ++i) {
-        yield i;
-    }
-}
+
 
 describe(shuffle, () => {
     it('generates reasonably random permutations', () => {
