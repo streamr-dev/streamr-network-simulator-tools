@@ -1,7 +1,20 @@
-import { Event, TimeSimulator } from "./TimeSimulator";
-import { generateRandomRegularGraph } from "./utils";
+import { Event, TimeSimulator } from "../TimeSimulator";
+import { generateRandomRegularGraph } from "../utils";
 
-const graph = generateRandomRegularGraph(10, 4);
+const NUM_OF_NODES = 10
+const NODE_DEGREE = 4
+
+/**
+ * Experiment on the number of duplicate messages sent and received by
+ * nodes in a network.
+ *
+ * 1. A random regular graph with uniform edge weights is formed.
+ * 2. A single message is published to the graph.
+ * 3. The number of times each node sent or received that message is recorded.
+ *
+ */
+
+const graph = generateRandomRegularGraph(NUM_OF_NODES, NODE_DEGREE);
 
 const numOfMessagesSentPerNode: {  [key: number]: number } = {};
 const numOfMessagesReceivedPerNode: { [key: number]: number } = {};
