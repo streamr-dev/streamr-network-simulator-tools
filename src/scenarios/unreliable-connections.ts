@@ -3,7 +3,7 @@ import { forRounds, generateRandomRegularGraph, shuffle } from "../utils";
 
 const NUM_OF_NODES = 100
 const NODE_DEGREE = 4
-const EDGE_DROP_RATE = 0.10
+const EDGE_DROP_RATE = 0.05
 const NUM_OF_MESSAGES = 10000
 
 /**
@@ -50,9 +50,18 @@ for (const idx of forRounds(NUM_OF_MESSAGES)) {
     timeSimulator.execute(publishMessageEvent);
 }
 
-const uniqueMessagesReceivedPerNode = Object.values(seenMessages).map((s) => s.size)
-const uniqueMessagesReceieved = uniqueMessagesReceivedPerNode.reduce((acc, el) => acc + el)
+const expectedTotalUniqueMessages = NUM_OF_MESSAGES * NUM_OF_NODES
+const uniqueMessagesReceivedPerNode = Object.values(seenMessages)
+    .map((s) => s.size)
+const totalUniqueMessages = uniqueMessagesReceivedPerNode
+    .reduce((acc, el) => acc + el)
+const numOfNodesThatReceivedAll = uniqueMessagesReceivedPerNode
+    .filter((el) => el === NUM_OF_MESSAGES).length
 
-console.table(uniqueMessagesReceivedPerNode);
-console.info('Node degrees:', graph.nodeDegrees())
-console.info('Missed messages:', uniqueMessagesReceieved / (NUM_OF_MESSAGES * NUM_OF_NODES))
+//console.table(uniqueMessagesReceivedPerNode);
+//console.info('Node degrees:', graph.nodeDegrees())
+console.info('Message delivery rate:',
+    totalUniqueMessages / expectedTotalUniqueMessages)
+console.info('Number of missed messages: ',
+    expectedTotalUniqueMessages - totalUniqueMessages, '/', expectedTotalUniqueMessages)
+console.info('Nodes that received all', numOfNodesThatReceivedAll, '/', NUM_OF_NODES)
